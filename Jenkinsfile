@@ -31,7 +31,7 @@ pipeline {
     stage('SonarQube Analysis') {
       steps{
         withSonarQubeEnv('sonar-server') {
-        sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Devops-maven-jenkins-sonarqube-nexus-Pipeline  -Dsonar.projectName=Devops-maven-jenkins-sonarqube-nexus-Pipeline"
+        sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Devops-maven-jenkins-sonarqube-nexus-Pipeline  -Dsonar.projectName=Devops-maven-jenkins-sonarqube-nexus-Pipeline -Dsonar.login=sqb_b5c6dd9102267f684845192f25889b145532b06f"
       }
     }
 
