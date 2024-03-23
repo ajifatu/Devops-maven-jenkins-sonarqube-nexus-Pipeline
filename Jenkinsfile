@@ -1,5 +1,6 @@
 pipeline {
   agent any
+
   tools {
     maven "M3"
   }
@@ -9,10 +10,10 @@ pipeline {
 
       NEXUS_VERSION = "nexus3"
       NEXUS_PROTOCOL = "http"
-      NEXUS_URL = "172.18.0.4:8081"
+      NEXUS_URL = "http://127.0.0.1:8081"
       NEXUS_REPOSITORY = "Devops-maven-jenkins-sonarqube-nexus-Pipeline"
       NEXUS_CREDENTIAL_ID = "nexusCredential"
-      ARTIFACT_VERSION = "${BUILD_NUMBER}"
+      ARTIFACT_VERSION = "1.0-SNAPSHOT"
   }
 
   stages {
@@ -37,7 +38,7 @@ pipeline {
 
   }
 
-  stage("publish to nexus") {
+  stage("Publish to nexus") {
             steps {
                 script {
                     // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
