@@ -10,7 +10,7 @@ pipeline {
 
       NEXUS_VERSION = "nexus3"
       NEXUS_PROTOCOL = "http"
-      NEXUS_URL = "http://127.0.0.1:8081/#admin/repository/repositories:Devops-maven-jenkins-sonarqube-nexus-Pipeline"
+      NEXUS_URL = "http://127.0.0.1:8081/#admin/"
       NEXUS_REPOSITORY = "Devops-maven-jenkins-sonarqube-nexus-Pipeline"
       NEXUS_CREDENTIAL_ID = "nexus_credentials"
       ARTIFACT_VERSION = "1.0-SNAPSHOT"
@@ -40,8 +40,7 @@ pipeline {
 
   stage('Publish to nexus') {
             steps {
-                script {
-                    // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
+                // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
                     pom = readMavenPom file: "pom.xml";
                     // Find built artifact under target folder
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");

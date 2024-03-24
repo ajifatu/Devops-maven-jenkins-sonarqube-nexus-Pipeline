@@ -3,7 +3,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>sn.dev</groupId>
-  <artifactId>maven-sample</artifactId>
+  <artifactId>Devops-maven-jenkins-sonarqube-nexus-Pipeline</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
