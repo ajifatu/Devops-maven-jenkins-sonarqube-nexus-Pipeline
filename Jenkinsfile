@@ -12,7 +12,7 @@ pipeline {
       NEXUS_PROTOCOL = "http"
       NEXUS_URL = "127.0.0.1:8081"
       NEXUS_REPOSITORY = "Devops-maven-jenkins-sonarqube-nexus-Pipeline"
-      NEXUS_CREDENTIAL_ID = "nexusCredential"
+      NEXUS_CREDENTIAL_ID = "nexus_credentials"
       ARTIFACT_VERSION = "1.0-SNAPSHOT"
   }
 
@@ -38,7 +38,7 @@ pipeline {
 
   }
 
-  stage("Publish to nexus") {
+  stage('Publish to nexus') {
             steps {
                 script {
                     // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
@@ -51,6 +51,7 @@ pipeline {
                     artifactPath = filesByGlob[0].path;
                     // Assign to a boolean response verifying If the artifact name exists
                     artifactExists = fileExists artifactPath;
+
 
                     if(artifactExists) {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
