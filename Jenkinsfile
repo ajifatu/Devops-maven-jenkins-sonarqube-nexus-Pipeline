@@ -92,10 +92,10 @@ pipeline {
         artifacts: [
             [artifactId: "Devops-maven-jenkins-sonarqube-nexus-Pipeline",
              classifier: '',
-             file: 'target/Devops-maven-jenkins-sonarqube-nexus-Pipeline.jar',
-             type: 'jar']
-            // file: "my-service-${env.BUILD_ID}-${env.BUILD_TIMESTAMP}.jar",
-            // type: 'jar']
+            //  file: 'target/Devops-maven-jenkins-sonarqube-nexus-Pipeline.jar',
+            //  type: 'jar']
+            file: "Devops-maven-jenkins-sonarqube-nexus-Pipeline-${env.BUILD_ID}-${env.BUILD_TIMESTAMP}.jar",
+            type: 'jar']
         ]
      )
     }
