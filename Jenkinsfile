@@ -94,7 +94,8 @@ pipeline {
              classifier: '',
             //  file: 'target/Devops-maven-jenkins-sonarqube-nexus-Pipeline.war',
             //  type: 'war']
-            file: "my-service-${env.BUILD_ID}-${env.BUILD_TIMESTAMP}.jar",
+            // file: "my-service-${env.BUILD_ID}-${env.BUILD_TIMESTAMP}.jar",
+            file: [0].path,
             type: 'jar']
         ]
      )
