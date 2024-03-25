@@ -95,7 +95,7 @@ pipeline {
              file: 'target/Devops-maven-jenkins-sonarqube-nexus-Pipeline.jar',
              type: 'jar']
             // file: "my-service-${env.BUILD_ID}-${env.BUILD_TIMESTAMP}.jar",
-            type: 'jar']
+            // type: 'jar']
         ]
      )
     }
