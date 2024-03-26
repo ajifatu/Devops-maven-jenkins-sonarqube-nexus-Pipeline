@@ -52,7 +52,7 @@ pipeline {
         // Assign to a boolean response verifying If the artifact name exists
         artifactExists = fileExists artifactPath;
 
-
+        echo "Before if condition"
         if(artifactExists) {
             echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
             echo "Artifact actually exists"
@@ -74,8 +74,10 @@ pipeline {
             );
 
         } else {
+            echo "Artifact does not exists"
             error "*** File: ${artifactPath}, could not be found";
         }
+        echo "After if condition"
       }
     }
   }
