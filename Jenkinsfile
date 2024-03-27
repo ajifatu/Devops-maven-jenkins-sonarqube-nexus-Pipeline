@@ -3,7 +3,7 @@ pipeline {
 
   tools {
     maven "M3"
-    jdk "jdk8"
+    jdk "jdk21"
   }
 
   environment {
@@ -19,6 +19,13 @@ pipeline {
   }
 
   stages {
+
+    stage('Stage to debog jdk env variable issues') {
+        steps {
+            sh "echo $JAVA_HOME"
+        }
+    }
+
     stage('Checkout') {
       steps{
         git branch: 'main', url: 'https://github.com/ajifatu/Devops-maven-jenkins-sonarqube-nexus-Pipeline.git'
