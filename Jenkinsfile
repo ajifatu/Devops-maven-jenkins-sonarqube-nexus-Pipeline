@@ -3,12 +3,12 @@ pipeline {
 
   tools {
     maven "M3"
-    jdk "jdk21"
+    // jdk "jdk21"
   }
 
   environment {
       def mvn = tool 'M3'
-      JAVA_HOME = "/Users/macbookpro/Library/Java/JavaVirtualMachines/openjdk-21.0.2"
+      // JAVA_HOME = "/Users/macbookpro/Library/Java/JavaVirtualMachines/openjdk-21.0.2"
 
       NEXUS_VERSION = "nexus3"
       NEXUS_PROTOCOL = "http"
@@ -20,11 +20,11 @@ pipeline {
 
   stages {
 
-    stage('Stage to debog jdk env variable issues') {
-        steps {
-            sh "echo $JAVA_HOME"
-        }
-    }
+    // stage('Stage to debog jdk env variable issues') {
+    //     steps {
+    //         sh "echo $JAVA_HOME"
+    //     }
+    // }
 
     stage('Checkout') {
       steps{
@@ -35,6 +35,8 @@ pipeline {
     stage('Build') {
       steps {
         sh "${mvn}/bin/mvn clean package "
+        sh "/Users/macbookpro/.jenkins/tools/hudson.tasks.Maven_MavenInstallation/M3/bin/mvn clean package -Dmaven.compiler.fork=true -Dmaven.compiler.executable=/Users/macbookpro/Library/Java/JavaVirtualMachines/openjdk-21.0.2/bin/javac"
+
       }
     }
 
