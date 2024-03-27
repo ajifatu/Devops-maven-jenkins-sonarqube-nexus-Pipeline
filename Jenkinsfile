@@ -8,6 +8,7 @@ pipeline {
 
   environment {
       def mvn = tool 'M3'
+      JAVA_HOME = "/Users/macbookpro/Library/Java/JavaVirtualMachines/openjdk-21.0.2"
 
       NEXUS_VERSION = "nexus3"
       NEXUS_PROTOCOL = "http"
@@ -107,3 +108,6 @@ pipeline {
 
  }
 }
+
+
+
